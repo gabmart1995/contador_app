@@ -10,46 +10,76 @@
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
         >
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:text="Contador:"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/contador_pulsaciones" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contador:"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="Resetear"
-            android:onClick="resetCounter"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/contador_pulsaciones"
+                android:layout_below="@id/title_text"
+                android:layout_centerHorizontal="true"
+                android:textSize="56dp"
+                />
+        </LinearLayout>
 
-        <!-- layout botón superior -->
-        <Button
-            android:id="@+id/incrementar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Incrementa"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/reset"
-            android:onClick="incrementCounter"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center">
 
-        <!-- layout botón inferior -->
-        <Button
-            android:id="@+id/decrementar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Decrementa"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/reset"
-            android:onClick="decrementCounter"
-            />
+            <Button
+                android:id="@+id/decrementar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="-"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/reset"
+                android:onClick="decrementCounter"
+                android:textSize="50dp"
+                />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="0dp" />
+
+            <Button
+                android:id="@+id/incrementar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_above="@+id/reset"
+                android:layout_centerHorizontal="true"
+                android:onClick="incrementCounter"
+                android:text="+"
+                android:textSize="50dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom|center">
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Resetear"
+                android:onClick="resetCounter"
+                />
+        </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

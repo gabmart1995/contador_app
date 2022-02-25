@@ -34,6 +34,6 @@ public class MainActivity extends Activity {
 
     public void showResult() {
         TextView textResult = ( TextView ) findViewById( R.id.contador_pulsaciones );
-        textResult.setText( "Contador " + counter );
+        textResult.setText( "" + counter );
     }
 }
