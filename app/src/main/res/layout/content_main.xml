@@ -27,9 +27,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/contador_pulsaciones"
-                android:layout_below="@id/title_text"
-                android:layout_centerHorizontal="true"
-                android:textSize="56dp"
+                android:textSize="56sp"
                 />
         </LinearLayout>
 
@@ -44,10 +42,8 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:text="-"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/reset"
                 android:onClick="decrementCounter"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 />
 
             <Space
@@ -58,11 +54,9 @@
                 android:id="@+id/incrementar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_above="@+id/reset"
-                android:layout_centerHorizontal="true"
                 android:onClick="incrementCounter"
                 android:text="+"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 />
         </LinearLayout>
 
@@ -75,8 +69,6 @@
                 android:id="@+id/reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
                 android:text="Resetear"
                 android:onClick="resetCounter"
                 />
