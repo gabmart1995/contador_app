@@ -2,7 +2,10 @@ package com.example.contador;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +16,19 @@ public class MainActivity extends Activity {
 
     TextView textResult;
 
+    class EventKeyboard implements TextView.OnEditorActionListener {
+
+        @Override
+        public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+
+            if ( actionId == EditorInfo.IME_ACTION_DONE ) {
+                resetCounter( null );
+            }
+
+            return false;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +36,11 @@ public class MainActivity extends Activity {
 
         // se inicializa los elementos del xml
         textResult = ( TextView ) findViewById( R.id.contador_pulsaciones );
+
+        // como crear eventos
+        EventKeyboard eventKeyboard = new EventKeyboard();
+        EditText n_reset = (EditText) findViewById( R.id.n_reset );
+        n_reset.setOnEditorActionListener( eventKeyboard );
     }
 
     public void incrementCounter( View view ) {
@@ -64,5 +85,9 @@ public class MainActivity extends Activity {
         // limpiamos el campo de texto
         textNumber.setText( "" );
         textResult.setText( "" + counter );
+
+        // obtenemos una instancia del teclado y cerramos
+        InputMethodManager keyboard = (InputMethodManager) getSystemService( INPUT_METHOD_SERVICE );
+        keyboard.hideSoftInputFromWindow( textNumber.getWindowToken(), 0 );
     }
 }
